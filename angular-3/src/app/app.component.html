@@ -1,1 +1,28 @@
-<p>app works!</p>
+<div class="containe">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Material</th>
+            <th>Trade</th>
+            <th>Cost-code</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let construction of list$ | async">
+            <td>{{ construction.id }}</td>
+            <td>{{ construction.material }}</td>
+            <td>{{ construction.trade }}</td>
+            <td>{{ construction.costCode }}</td>
+            <td>
+              <button (click)="onDelete(construction)" class="btn btn-danger">delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
