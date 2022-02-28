@@ -1,0 +1,33 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="row">
+    <!--<div *ngIf="car$ | async as car">-->
+      <form #carForm="ngForm" (ngSubmit)="onSubmit(car)">
+        <div class="form-group">
+          <label for="">Model</label>
+          <input class="form-control" name="model" type="text" required pattern="[A-Z][a-zA-Z0-9 ]{1,14}">
+          <div [hidden]="carForm.controls['name']?.valid">Please add a valid model.</div>
+
+          <label for="">Make</label>
+          <input class="form-control" name="make" type="text" required pattern="[A-Z][a-zA-Z]{2,19}">
+          <div [hidden]="carForm.controls['make']?.valid">Please add a valid make.</div>
+
+          <label for="">Year</label>
+          <input class="form-control" name="year" type="number" required pattern="[0-9]">
+          <div [hidden]="carForm.controls['year']?.valid">Please add a valid year.</div>
+
+          <label for="">Price</label>
+          <input class="form-control" name="price" type="number" required pattern="[0-9]{3,5}">
+          <div [hidden]="carForm.controls['price']?.valid">Please add a valid price.</div>
+
+          <label for="">Stock</label>
+          <input class="form-control" name="stock" type="number" required pattern="[0-9]{1,2}">
+          <div [hidden]="carForm.controls['stock']?.valid">Please add a valid stock number.</div>
+
+          <button [disabled]="carForm.invalid" class="btn btn-info">
+            submit
+          </button>
+        </div>
+      </form>
+    <!--</div>-->
+  </div>
+</div>
