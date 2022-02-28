@@ -61,7 +61,12 @@ const animals = [{
   }];
 
 const animalFilter = (list = animals, pop, zoo) => {
-    return [];
+  const sortedAnimals = animals.filter( animal => animal.population > pop)
+  .filter( animal => animal.zoo <= zoo)
+  .map( animal => animal.common_name)
+  .sort()
+  
+    return sortedAnimals;
 };
 
 if (typeof module !== 'undefined') {
